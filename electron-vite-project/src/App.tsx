@@ -20,6 +20,7 @@ function App() {
   // Écouter les événements 'sqlResult' et 'sqlError' du serveur
   socket.on("sqlResult", (data) => {
     setResult(data);
+    console.log(data);
     setError("");
   });
 
@@ -34,7 +35,7 @@ function App() {
         Liste des étudiants
       </h1>
       <Tableau />
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="flex items-center bg-red-500">
           <TextField
             label="Requete"
@@ -46,7 +47,7 @@ function App() {
           <p>Requete</p>
         </div>
         <div>
-          <Button variant="contained" color="success">
+          <Button variant="contained" color="success" onClick={handleSubmit}>
             Envoyer requete
           </Button>
         </div>
